@@ -1,22 +1,22 @@
 services:
- facefusion-cuda:
-  container_name: facefusion
-  restart: unless-stopped
-  #runtime: nvidia
-  build:
-   context: .
-   dockerfile: Dockerfile.cuda
-  command: [ 'python', 'facefusion.py', 'run', '--execution-providers', 'cuda' ]
-  volumes:
-  - .assets:/facefusion/.assets
-  - .caches:/facefusion/.caches
-  - .jobs:/facefusion/.jobs
-  ports:
-  - 7870:7860
-  deploy:
+  facefusion-cuda:
+    container_name: facefusion-cuda
+    restart: unless-stopped
+    runtime: nvidia
+    build:
+      context: .
+      dockerfile: Dockerfile.cuda
+    command: [ 'python', 'facefusion.py', 'run', '--execution-providers', 'cuda' ]
+    volumes:
+      - ${ASSETS}:/facefusion/.assets
+      - ${CACHES}:/facefusion/.caches
+      - ${JOBS}:/facefusion/.jobs
+    ports:
+      - 7870:7860
+    deploy:
     resources:
-	  reservations:
-	    devices:
-		  - driver: nvidia
-		    count: 1
-		    capabilities: [all]
+      reservations:
+        devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [all]
