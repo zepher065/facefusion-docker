@@ -2,7 +2,6 @@ services:
   facefusion-cuda:
     container_name: facefusion-cuda
     restart: unless-stopped
-    runtime: nvidia
     build:
       context: .
       dockerfile: Dockerfile.cuda
