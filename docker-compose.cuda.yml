@@ -18,4 +18,5 @@ services:
       reservations:
 	    devices:
 		  - driver: nvidia
+		    count: 1
 		    capabilities: [all]
