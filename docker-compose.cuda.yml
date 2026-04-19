@@ -11,7 +11,7 @@ services:
       - ${ASSETS}:/facefusion/.assets
       - ${CACHES}:/facefusion/.caches
       - ${JOBS}:/facefusion/.jobs
-	environment:
+    environment:
       - NVIDIA_DISABLE_REQUIRE=1
     ports:
       - 7870:7860
