@@ -2,7 +2,7 @@ services:
  facefusion-cuda:
   container_name: facefusion
   restart: unless-stopped
-  runtime: nvidia
+  #runtime: nvidia
   build:
    context: .
    dockerfile: Dockerfile.cuda
@@ -15,7 +15,7 @@ services:
   - 7870:7860
   deploy:
     resources:
-      reservations:
+	  reservations:
 	    devices:
 		  - driver: nvidia
 		    count: 1
