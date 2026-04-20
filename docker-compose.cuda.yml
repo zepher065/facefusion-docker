@@ -9,8 +9,9 @@ services:
     command: [ 'python', 'facefusion.py', 'run', '--execution-providers', 'cuda' ]
     volumes:
       - ${ASSETS}:/facefusion/.assets
-      - ${CACHES}/facefusion/.caches
+      - ${CACHES}:/facefusion/.caches
       - ${JOBS}:/facefusion/.jobs
+	  - ${TMP}:/tmp
     environment:
       - NVIDIA_DISABLE_REQUIRE=1
     ports:
